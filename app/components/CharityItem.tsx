@@ -1,11 +1,10 @@
 import React from "react";
-import { Charity } from "../types/inrefaces";
+import { Charity, LocalStorageItem } from "../types/inrefaces";
 import Link from "next/link";
 import Image from "next/image";
 import { FaLocationDot } from "react-icons/fa6";
 
-const CharityItem = ({ item }: { item: Charity }) => {
-  console.log(item.logoUrl);
+const CharityItem = ({ item }: { item: Charity | LocalStorageItem }) => {
   return (
     <Link
       href={`/charity/${item.ein}`}
@@ -15,7 +14,7 @@ const CharityItem = ({ item }: { item: Charity }) => {
         <div className="">
           <Image src={item.logoUrl} alt={item.name} width={48} height={48} />
         </div>
-        <div className="text-lg font-semibold ">{item.name}</div>
+        <div className="text-lg font-semibold">{item.name}</div>
       </div>
       <div className="w-full my-3 border-b border-gray-300"></div>
       <div className="flex gap-x-2">

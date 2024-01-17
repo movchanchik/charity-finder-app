@@ -3,7 +3,6 @@ import { Charity } from "../types/inrefaces";
 import CharityItem from "./CharityItem";
 
 const CharityItems = async () => {
-  console.log("Test");
   const response = await fetch(
     "https://partners.every.org/v0.2/search/pets?take=12&apiKey=pk_live_836269766a06ccc2bf45d3b26574134f"
   );
