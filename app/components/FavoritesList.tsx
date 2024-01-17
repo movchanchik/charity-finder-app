@@ -1,12 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import CharityItem from "../components/CharityItem";
 import { LocalStorageItem } from "../types/inrefaces";
+import { useEffect } from "react";
 
 const FavoritesList = () => {
-  const localStorageItems = JSON.parse(
-    localStorage.getItem("favoriteList") || "[]"
-  );
+  const [localStorageItems, setLocalStorageItems] = useState<
+    LocalStorageItem[]
+  >([]);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("favoriteList") || "[]");
+    setLocalStorageItems(items);
+  }, []);
   return (
     <>
       {!localStorageItems.length ? (
