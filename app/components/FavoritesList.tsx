@@ -13,6 +13,7 @@ const FavoritesList = () => {
     const items = JSON.parse(localStorage.getItem("favoriteList") || "[]");
     setLocalStorageItems(items);
   }, []);
+
   return (
     <>
       {!localStorageItems.length ? (

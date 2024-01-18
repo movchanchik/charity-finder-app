@@ -1,13 +1,16 @@
 import React from "react";
 import { Charity } from "../types/inrefaces";
 import CharityItem from "./CharityItem";
+import causesJSON from "../causes.json";
 
 const CharityItems = async () => {
+  const causes = causesJSON.causes;
+  const randomIndex = Math.floor(Math.random() * causes.length);
+
   const response = await fetch(
-    "https://partners.every.org/v0.2/search/pets?take=12&apiKey=pk_live_836269766a06ccc2bf45d3b26574134f"
+    `https://partners.every.org/v0.2/search/${causes[randomIndex]}?take=12&apiKey=pk_live_836269766a06ccc2bf45d3b26574134f`
   );
   const res = await response.json();
-  res.nonprofits.map((item: Charity) => console.log(item));
 
   return (
     <div className="container mx-auto">
